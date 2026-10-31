@@ -1,0 +1,368 @@
+/* Glassmorphism decorations for the "Purple Glass" themes.
+   The themes only provide translucent colors, this file adds the frosting, the
+   light-catching edges and the violet accents on top of the shared components. */
+
+/* stylelint-disable property-no-vendor-prefix -- Safari before 18 only supports the prefixed property */
+html[data-theme^="gitea-purple-glass"] body {
+  background-color: var(--color-body);
+  background-image: var(--glass-body-image);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+html[data-theme^="gitea-purple-glass"] ::selection {
+  background: var(--color-primary-alpha-30);
+  color: var(--color-text-dark);
+}
+
+html[data-theme^="gitea-purple-glass"] * {
+  scrollbar-color: var(--color-secondary-dark-3) transparent;
+}
+
+/* navigation */
+
+html[data-theme^="gitea-purple-glass"] #navbar {
+  background: var(--color-nav-bg);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 12px 32px -24px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] #navbar > .item.active,
+html[data-theme^="gitea-purple-glass"] #navbar > .navbar-list > .item.active {
+  background: var(--color-primary-alpha-20);
+  box-shadow: inset 0 0 0 1px var(--glass-border);
+}
+
+html[data-theme^="gitea-purple-glass"] #navbar .notification_count,
+html[data-theme^="gitea-purple-glass"] #navbar .header-stopwatch-dot {
+  color: var(--color-primary-contrast);
+  box-shadow: 0 0 10px var(--glass-glow);
+}
+
+html[data-theme^="gitea-purple-glass"] #navbar-logo img {
+  filter: drop-shadow(0 0 10px var(--glass-glow));
+}
+
+html[data-theme^="gitea-purple-glass"] .secondary-nav {
+  background: var(--color-secondary-nav-bg) !important; /* the shared rule also needs it to beat .ui.secondary.menu */
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+/* panels */
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.header {
+  border-color: var(--glass-border);
+  border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.segment,
+html[data-theme^="gitea-purple-glass"] .ui.segment:not(.attached),
+html[data-theme^="gitea-purple-glass"] .ui.card,
+html[data-theme^="gitea-purple-glass"] .ui.message,
+html[data-theme^="gitea-purple-glass"] .ui.table,
+html[data-theme^="gitea-purple-glass"] .ui.menu {
+  border-color: var(--glass-border);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.segment:not(.attached),
+html[data-theme^="gitea-purple-glass"] .ui.message {
+  border-radius: var(--glass-radius);
+  box-shadow: 0 22px 48px -32px var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.segment {
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui[class*="top attached"].segment {
+  border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.segment:last-child,
+html[data-theme^="gitea-purple-glass"] .ui.attached.segment:has(+ :not(.ui.attached.segment)) {
+  border-radius: 0 0 var(--glass-radius) var(--glass-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.segment:only-child {
+  border-radius: var(--glass-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table {
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table > thead > tr:first-child > th:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table > thead > tr:first-child > th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table > thead > tr:first-child > th:only-child {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table > tfoot > tr:first-child > th:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.table > tfoot > tr:first-child > th:last-child {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.menu:not(.secondary, .tabular, .pointing) {
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.division.divider,
+html[data-theme^="gitea-purple-glass"] .ui.tabs.divider {
+  border-bottom-color: var(--glass-border);
+}
+
+/* tabs and pills */
+
+html[data-theme^="gitea-purple-glass"] .ui.secondary.pointing.menu .item,
+html[data-theme^="gitea-purple-glass"] .ui.tabular.menu .item {
+  border-radius: var(--glass-radius-small) var(--glass-radius-small) 0 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.secondary.pointing.menu a.item:hover,
+html[data-theme^="gitea-purple-glass"] .ui.tabular.menu .item:hover {
+  background-color: var(--color-hover);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.pointing.menu .active.item::after {
+  display: none;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.secondary.pointing.menu .active.item,
+html[data-theme^="gitea-purple-glass"] .ui.secondary.pointing.menu .active.item:hover {
+  background: var(--color-primary-alpha-10);
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.tabular.menu .active.item,
+html[data-theme^="gitea-purple-glass"] .ui.tabular.menu .active.item:hover,
+html[data-theme^="gitea-purple-glass"] .ui.segment .ui.tabular.menu .active.item,
+html[data-theme^="gitea-purple-glass"] .ui.segment .ui.tabular.menu .active.item:hover {
+  background: var(--color-primary-alpha-10);
+  border-color: var(--glass-border);
+  box-shadow: inset 0 -2px 0 0 var(--color-primary);
+  color: var(--color-primary);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.secondary.menu .item {
+  border-radius: var(--glass-radius-small);
+}
+
+html[data-theme^="gitea-purple-glass"] .home .hero .svg {
+  filter: drop-shadow(0 0 24px var(--glass-glow));
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.secondary.menu .active.item,
+html[data-theme^="gitea-purple-glass"] .ui.secondary.menu .active.item:hover {
+  background: var(--color-primary-alpha-20);
+  box-shadow: inset 0 0 0 1px var(--glass-border);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.label {
+  border-radius: var(--border-radius-full);
+  box-shadow: inset 0 0 0 1px var(--glass-border);
+}
+
+/* forms */
+
+html[data-theme^="gitea-purple-glass"] .ui.input > input,
+html[data-theme^="gitea-purple-glass"] .ui.form input:not([type="checkbox"], [type="radio"]),
+html[data-theme^="gitea-purple-glass"] .ui.form select,
+html[data-theme^="gitea-purple-glass"] .ui.form textarea,
+html[data-theme^="gitea-purple-glass"] .ui.selection.dropdown,
+html[data-theme^="gitea-purple-glass"] .ui.search > .prompt,
+html[data-theme^="gitea-purple-glass"] input:not([type="checkbox"], [type="radio"]),
+html[data-theme^="gitea-purple-glass"] textarea,
+html[data-theme^="gitea-purple-glass"] select {
+  border-radius: var(--glass-radius-small);
+  box-shadow: inset 0 1px 2px var(--glass-shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.input > input:focus,
+html[data-theme^="gitea-purple-glass"] .ui.form input:not([type="checkbox"], [type="radio"]):focus,
+html[data-theme^="gitea-purple-glass"] .ui.form select:focus,
+html[data-theme^="gitea-purple-glass"] .ui.form textarea:focus,
+html[data-theme^="gitea-purple-glass"] .ui.selection.dropdown:focus,
+html[data-theme^="gitea-purple-glass"] .ui.search > .prompt:focus,
+html[data-theme^="gitea-purple-glass"] input:not([type="checkbox"], [type="radio"]):focus,
+html[data-theme^="gitea-purple-glass"] textarea:focus,
+html[data-theme^="gitea-purple-glass"] select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-20);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.search > .results {
+  border-color: var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--color-menu);
+  box-shadow: 0 20px 50px -18px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.search > .results .result {
+  background: none;
+  border-bottom-color: var(--glass-border);
+}
+
+/* buttons */
+
+html[data-theme^="gitea-purple-glass"] .ui.button {
+  border-radius: var(--glass-radius-small);
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.button:hover {
+  border-color: var(--glass-border-strong);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.primary.button:not(.basic) {
+  background: var(--glass-primary-gradient);
+  border-color: var(--glass-border-strong);
+  box-shadow: 0 10px 24px -12px var(--color-primary-alpha-70), inset 0 1px 0 var(--glass-highlight);
+  color: var(--color-primary-contrast);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.primary.button:not(.basic):hover {
+  background: var(--glass-primary-gradient-hover);
+  box-shadow: 0 12px 28px -10px var(--color-primary-alpha-80), inset 0 1px 0 var(--glass-highlight);
+  color: var(--color-primary-contrast);
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.primary.button:not(.basic):active {
+  background: var(--glass-primary-gradient);
+  box-shadow: 0 6px 16px -10px var(--color-primary-alpha-80), inset 0 1px 0 var(--glass-highlight);
+  color: var(--color-primary-contrast);
+}
+
+/* overlays: dropdowns, tooltips, modals, toasts */
+
+html[data-theme^="gitea-purple-glass"] .ui.dropdown .menu {
+  background: var(--color-menu);
+  border-color: var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: 0 24px 56px -20px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.menu .dropdown.item .menu {
+  background: var(--color-menu);
+}
+
+html[data-theme^="gitea-purple-glass"] .overflow-menu .overflow-menu-popup {
+  background-color: var(--color-menu);
+  border-color: var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: 0 20px 50px -18px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .tippy-box[data-theme="menu"],
+html[data-theme^="gitea-purple-glass"] .tippy-box[data-theme="box-with-header"] {
+  border-color: var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: 0 20px 50px -18px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-backdrop {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog {
+  background: var(--glass-surface-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: 0 40px 90px -30px var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog > .header {
+  background: none;
+  border-bottom-color: var(--glass-border);
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog > :first-child {
+  border-top-left-radius: var(--glass-radius);
+  border-top-right-radius: var(--glass-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog > :last-child {
+  border-bottom-left-radius: var(--glass-radius);
+  border-bottom-right-radius: var(--glass-radius);
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog > .content,
+html[data-theme^="gitea-purple-glass"] .modal-dialog form > .content {
+  background: none;
+}
+
+html[data-theme^="gitea-purple-glass"] .modal-dialog > .actions,
+html[data-theme^="gitea-purple-glass"] .modal-dialog .content + .actions,
+html[data-theme^="gitea-purple-glass"] .modal-dialog .content + form > .actions {
+  border-top-color: var(--glass-border);
+}
+
+html[data-theme^="gitea-purple-glass"] .toastify {
+  border-radius: var(--glass-radius);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+/* sticky repo surfaces sit on top of scrolling content, they need real frosting */
+
+html[data-theme^="gitea-purple-glass"] .repository .diff-detail-box {
+  background: var(--color-box-body);
+  border-radius: var(--glass-radius-small);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .ui.attached.header.diff-file-header.sticky-2nd-row {
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-theme^="gitea-purple-glass"] .repository .data-table .line-num {
+  background: none;
+}
+
+html[data-theme^="gitea-purple-glass"] .repository.view.issue .comment-list .comment .comment-container {
+  border-color: var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+/* fall back to solid panels where frosting is unavailable, the translucent colors alone are too weak there */
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html[data-theme^="gitea-purple-glass"] .ui.dropdown .menu,
+  html[data-theme^="gitea-purple-glass"] .overflow-menu .overflow-menu-popup,
+  html[data-theme^="gitea-purple-glass"] .tippy-box[data-theme="menu"],
+  html[data-theme^="gitea-purple-glass"] .tippy-box[data-theme="box-with-header"],
+  html[data-theme^="gitea-purple-glass"] .modal-dialog,
+  html[data-theme^="gitea-purple-glass"] .ui.search > .results {
+    background: var(--glass-surface-strong);
+  }
+}
+/* stylelint-enable property-no-vendor-prefix */
