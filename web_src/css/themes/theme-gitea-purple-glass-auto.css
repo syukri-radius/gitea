@@ -1,0 +1,7 @@
+@import "./theme-gitea-purple-glass-light.css" (prefers-color-scheme: light);
+@import "./theme-gitea-purple-glass-dark.css" (prefers-color-scheme: dark);
+
+gitea-theme-meta-info {
+  --theme-display-name: "Purple Glass Auto";
+  --theme-color-scheme: "auto";
+}

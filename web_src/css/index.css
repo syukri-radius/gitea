@@ -86,6 +86,7 @@
 @import "./review.css";
 @import "./actions.css";
 
+@import "./glass.css";
 @import "./helpers.css";
 
 @tailwind utilities;
